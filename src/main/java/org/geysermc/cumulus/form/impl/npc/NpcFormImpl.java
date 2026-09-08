@@ -111,7 +111,7 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
 
     // setNpcID
     @Override
-    public NpcForm.Builder entity(UUID entityUUID) {
+    public NpcForm.Builder entity(@NonNull UUID entityUUID) {
       this.entityUUID = entityUUID;
       return this;
     }
@@ -123,7 +123,7 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     }
 
     @Override
-    public NpcForm.Builder entityOffset(Vector3f vector3f) {
+    public NpcForm.Builder entityOffset(@NonNull Vector3f vector3f) {
       this.entityOffset = vector3f;
       return this;
     }
@@ -135,7 +135,7 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     }
 
     @Override
-    public NpcForm.Builder entityScale(Vector3f vector3f) {
+    public NpcForm.Builder entityScale(@NonNull Vector3f vector3f) {
       this.entityScale = vector3f;
       return this;
     }

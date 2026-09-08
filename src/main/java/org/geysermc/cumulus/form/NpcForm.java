@@ -74,7 +74,7 @@ public interface NpcForm extends Form {
      *
      * @since 2.0.0
      */
-    NpcForm.Builder entity(UUID entityUUID);
+    NpcForm.Builder entity(@NonNull UUID entityUUID);
 
     /**
      * Sets the entity's portrait offset. The default offset is "-7, 50, 0"
@@ -96,7 +96,7 @@ public interface NpcForm extends Form {
      *
      * @since 2.0.0
      */
-    NpcForm.Builder entityOffset(Vector3f vector3f);
+    NpcForm.Builder entityOffset(@NonNull Vector3f vector3f);
 
     /**
      * Sets the entity's portrait scale
@@ -118,7 +118,7 @@ public interface NpcForm extends Form {
      *
      * @since 2.0.0
      */
-    NpcForm.Builder entityScale(Vector3f vector3f);
+    NpcForm.Builder entityScale(@NonNull Vector3f vector3f);
 
     /**
      * Adds a button to the Form. There is a limit of 3 buttons in Npc Forms
