@@ -13,14 +13,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.common.returnsreceiver.qual.This;
 import org.cloudburstmc.math.vector.Vector3f;
-import org.geysermc.cumulus.component.ButtonComponent;
 import org.geysermc.cumulus.form.NpcForm;
-import org.geysermc.cumulus.form.SimpleForm;
 import org.geysermc.cumulus.form.impl.FormImpl;
 import org.geysermc.cumulus.response.NpcFormResponse;
-import org.geysermc.cumulus.response.SimpleFormResponse;
 
 public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
 
@@ -146,8 +142,8 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
 
     @Override
     public NpcFormImpl.Builder button(@NonNull String text) {
-      //There is a limit of 3 buttons in npc dialogs, adding more will cause the buttons to disappear
-      if (buttons.size() <= 3) {
+      //There is a limit of 6 buttons in npc dialogs
+      if (buttons.size() <= 6) {
         this.buttons.add(text);
       }
       return this;

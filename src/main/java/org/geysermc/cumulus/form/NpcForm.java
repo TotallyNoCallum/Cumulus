@@ -10,13 +10,10 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.common.returnsreceiver.qual.This;
 import org.cloudburstmc.math.vector.Vector3f;
-import org.geysermc.cumulus.component.ButtonComponent;
 import org.geysermc.cumulus.form.impl.npc.NpcFormImpl;
 import org.geysermc.cumulus.form.util.FormBuilder;
 import org.geysermc.cumulus.response.NpcFormResponse;
-import org.geysermc.cumulus.response.SimpleFormResponse;
 
 public interface NpcForm extends Form {
   /** Returns a new NpcForm builder. A more friendly way of creating a Form. */
@@ -103,7 +100,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityOffset(@NonNull Vector3f vector3f);
 
     /**
-     * Sets the entity's portrait scale
+     * Sets the entity's portrait scale. The default scale is "1.75, 1.75, 1.75"
      *
      * @param x X scale
      * @param y Y scale
@@ -115,7 +112,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityScale(double x, double y, double z);
 
     /**
-     * Sets the entity's portrait scale
+     * Sets the entity's portrait scale. The default scale is "1.75, 1.75, 1.75"
      *
      * @param vector3f the size
      * @return the form builder
@@ -125,7 +122,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityScale(@NonNull Vector3f vector3f);
 
     /**
-     * Adds a button to the Form. There is a limit of 3 buttons in Npc Forms
+     * Adds a button to the Form. There is a limit of 6 buttons in Npc Forms
      *
      * @param text the text of the added button
      * @return the form builder
@@ -135,7 +132,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder button(@NonNull String text);
 
     /**
-     * Adds a button to the Form, but only when shouldAdd is true. There is a limit of 3 buttons in Npc Forms
+     * Adds a button to the Form, but only when shouldAdd is true. There is a limit of 6 buttons in Npc Forms
      *
      * @param text the text of the added button
      * @param shouldAdd if the button should be added
@@ -146,7 +143,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder optionalButton(@NonNull String text, boolean shouldAdd);
 
     /**
-     * Adds a button with callback directly to the form. There is a limit of 3 buttons in Npc Forms
+     * Adds a button with callback directly to the form. There is a limit of 6 buttons in Npc Forms
      *
      * @param text the text of the added button
      * @param callback the handler when the button is clicked
@@ -155,7 +152,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder button(@NonNull String text, @NonNull Consumer<NpcFormResponse> callback);
 
     /**
-     * Adds a button with callback directly to the form, but only when shouldAdd is true. There is a limit of 3 buttons in Npc Forms
+     * Adds a button with callback directly to the form, but only when shouldAdd is true. There is a limit of 6 buttons in Npc Forms
      *
      * @param text the text of the added button
      * @param callback the handler when the button is clicked
