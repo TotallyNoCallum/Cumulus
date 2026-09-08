@@ -13,10 +13,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonPrimitive;
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.common.returnsreceiver.qual.This;
 import org.cloudburstmc.math.vector.Vector3f;
+import org.geysermc.cumulus.component.ButtonComponent;
 import org.geysermc.cumulus.form.NpcForm;
+import org.geysermc.cumulus.form.SimpleForm;
 import org.geysermc.cumulus.form.impl.FormImpl;
 import org.geysermc.cumulus.response.NpcFormResponse;
+import org.geysermc.cumulus.response.SimpleFormResponse;
 
 public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
 
@@ -153,6 +157,20 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     public NpcForm.Builder optionalButton(@NonNull String text, boolean shouldAdd) {
       if (shouldAdd) {
         return button(text);
+      }
+      return this;
+    }
+
+    @Override
+    public NpcForm.Builder button(@NonNull String text, @NonNull Consumer<NpcFormResponse> callback) {
+      callbacks.put(buttons.size(), Objects.requireNonNull(callback));
+      return button(text);
+    }
+
+    @Override
+    public NpcForm.Builder button(@NonNull String text,  @NonNull Consumer<NpcFormResponse> callback, boolean shouldAdd) {
+      if (shouldAdd) {
+        return button(text, callback);
       }
       return this;
     }

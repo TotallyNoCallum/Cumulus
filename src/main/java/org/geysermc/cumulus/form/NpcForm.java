@@ -7,12 +7,16 @@ package org.geysermc.cumulus.form;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.common.returnsreceiver.qual.This;
 import org.cloudburstmc.math.vector.Vector3f;
+import org.geysermc.cumulus.component.ButtonComponent;
 import org.geysermc.cumulus.form.impl.npc.NpcFormImpl;
 import org.geysermc.cumulus.form.util.FormBuilder;
 import org.geysermc.cumulus.response.NpcFormResponse;
+import org.geysermc.cumulus.response.SimpleFormResponse;
 
 public interface NpcForm extends Form {
   /** Returns a new NpcForm builder. A more friendly way of creating a Form. */
@@ -140,5 +144,24 @@ public interface NpcForm extends Form {
      * @since 2.0.0
      */
     NpcForm.Builder optionalButton(@NonNull String text, boolean shouldAdd);
+
+    /**
+     * Adds a button with callback directly to the form. There is a limit of 3 buttons in Npc Forms
+     *
+     * @param text the text of the added button
+     * @param callback the handler when the button is clicked
+     * @return the form builder
+     */
+    NpcForm.Builder button(@NonNull String text, @NonNull Consumer<NpcFormResponse> callback);
+
+    /**
+     * Adds a button with callback directly to the form, but only when shouldAdd is true. There is a limit of 3 buttons in Npc Forms
+     *
+     * @param text the text of the added button
+     * @param callback the handler when the button is clicked
+     * @param shouldAdd if the button should be added
+     * @return the form builder
+     */
+    NpcForm.Builder button(@NonNull String text, @NonNull Consumer<NpcFormResponse> callback, boolean shouldAdd);
   }
 }
