@@ -80,7 +80,7 @@ public final class NpcFormCodec extends FormCodecImpl<NpcForm, NpcFormResponse> 
 
     int buttonId;
     try {
-      buttonId = Integer.parseInt(data) + 1; //so the button index starts at 0
+      buttonId = Integer.parseInt(data);
     } catch (Exception exception) {
       return FormResponseResult.invalid(
           -1, "Received invalid integer representing the clicked button");

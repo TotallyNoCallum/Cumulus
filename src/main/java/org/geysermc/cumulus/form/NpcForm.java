@@ -61,6 +61,8 @@ public interface NpcForm extends Form {
      *
      * @param content Sets the description of the Form
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder content(@NonNull String content);
 
@@ -69,51 +71,74 @@ public interface NpcForm extends Form {
      *
      * @param entityUUID the UUID of the entity associated.
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder entity(UUID entityUUID);
 
     /**
-     * Sets the entity's offset
+     * Sets the entity's portrait offset. The default offset is "-7, 50, 0"
      *
      * @param x X position
      * @param y Y position
      * @param z Z position
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder entityOffset(double x, double y, double z);
 
     /**
-     * Sets the entity's offset
+     * Sets the entity's portrait offset. The default offset is "-7, 50, 0"
      *
      * @param vector3f the offset position
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder entityOffset(Vector3f vector3f);
 
     /**
-     * Sets the entity's scale
+     * Sets the entity's portrait scale
      *
      * @param x X scale
      * @param y Y scale
      * @param z Z scale
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder entityScale(double x, double y, double z);
 
     /**
-     * Sets the entity's scale
+     * Sets the entity's portrait scale
      *
      * @param vector3f the size
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder entityScale(Vector3f vector3f);
 
     /**
-     * Adds a button to the form. There is a limit of 3 buttons in Npc Forms
+     * Adds a button to the Form. There is a limit of 3 buttons in Npc Forms
      *
      * @param text the text of the added button
      * @return the form builder
+     *
+     * @since 2.0.0
      */
     NpcForm.Builder button(@NonNull String text);
+
+    /**
+     * Adds a button to the Form, but only when shouldAdd is true. There is a limit of 3 buttons in Npc Forms
+     *
+     * @param text the text of the added button
+     * @param shouldAdd if the button should be added
+     * @return the form builder
+     *
+     * @since 2.0.0
+     */
+    NpcForm.Builder optionalButton(@NonNull String text, boolean shouldAdd);
   }
 }

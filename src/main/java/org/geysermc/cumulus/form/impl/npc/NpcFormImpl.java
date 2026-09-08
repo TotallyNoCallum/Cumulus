@@ -142,9 +142,17 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
 
     @Override
     public NpcFormImpl.Builder button(@NonNull String text) {
-      //There is a limit of 3 buttons in npc dialogs
+      //There is a limit of 3 buttons in npc dialogs, adding more will cause the buttons to disappear
       if (buttons.size() <= 3) {
         this.buttons.add(text);
+      }
+      return this;
+    }
+
+    @Override
+    public NpcForm.Builder optionalButton(@NonNull String text, boolean shouldAdd) {
+      if (shouldAdd) {
+        return button(text);
       }
       return this;
     }
