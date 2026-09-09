@@ -144,7 +144,7 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     public NpcFormImpl.Builder button(@NonNull String text) {
       //There is a limit of 6 buttons in npc dialogs
       if (buttons.size() <= 6) {
-        this.buttons.add(text);
+        this.buttons.add(translate(Objects.requireNonNull(text, "text")));
       }
       return this;
     }
