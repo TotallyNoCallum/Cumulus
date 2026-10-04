@@ -99,8 +99,8 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     private final Map<Integer, Consumer<NpcFormResponse>> callbacks = new HashMap<>();
     private String content = "";
     private UUID entityUUID;
-    public Vector3f entityOffset = Vector3f.from(-7, 50, 0); //default values
-    public Vector3f entityScale = Vector3f.from(1.75, 1.75, 1.75); // ^
+    public Vector3f entityOffset = Vector3f.from(0, 0, 0);
+    public Vector3f entityScale = Vector3f.from(1, 1, 1);
 
     // setDialogue
     @Override
