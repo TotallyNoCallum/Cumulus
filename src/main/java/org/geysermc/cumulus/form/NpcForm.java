@@ -78,7 +78,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entity(@NonNull UUID entityUUID);
 
     /**
-     * Sets the entity's portrait offset. The default offset is "-7, 50, 0"
+     * Sets the entity's portrait offset.
      *
      * @param x X position
      * @param y Y position
@@ -90,7 +90,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityOffset(double x, double y, double z);
 
     /**
-     * Sets the entity's portrait offset. The default offset is "-7, 50, 0"
+     * Sets the entity's portrait offset.
      *
      * @param vector3f the offset position
      * @return the form builder
@@ -100,7 +100,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityOffset(@NonNull Vector3f vector3f);
 
     /**
-     * Sets the entity's portrait scale. The default scale is "1.75, 1.75, 1.75"
+     * Sets the entity's portrait scale. The default scale is "1, 1, 1"
      *
      * @param x X scale
      * @param y Y scale
@@ -112,7 +112,7 @@ public interface NpcForm extends Form {
     NpcForm.Builder entityScale(double x, double y, double z);
 
     /**
-     * Sets the entity's portrait scale. The default scale is "1.75, 1.75, 1.75"
+     * Sets the entity's portrait scale. The default scale is "1, 1, 1"
      *
      * @param vector3f the size
      * @return the form builder

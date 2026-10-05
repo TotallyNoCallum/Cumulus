@@ -41,14 +41,18 @@ public class NpcFormImpl extends FormImpl<NpcFormResponse> implements NpcForm {
     this.actionJson = actionJsonFromButtons(buttons);
 
     //Sets up npcData
-    JsonParser parser = new JsonParser();
-    //no need to customize this, but its required
-    String string = "{\"picker_offsets\":{\"scale\":[1.70,1.70,1.70],\"translate\":[0,20,0]},\"skin_list\":[{\"variant\":0}]}";
-    JsonObject json = parser.parse(string).getAsJsonObject();
+    JsonObject json = new JsonObject();
     JsonObject portrait_offsets = new JsonObject();
     portrait_offsets.add("scale", jsonArrayOf(entityScale));
     portrait_offsets.add("translate", jsonArrayOf(entityOffset));
     json.add("portrait_offsets", portrait_offsets);
+
+    JsonArray skin_list = new JsonArray();
+    JsonObject skin_variant = new JsonObject();
+    skin_variant.addProperty("variant", 0);
+    skin_list.add(skin_variant);
+    json.add("skin_list", skin_list);
+
     this.npc_data = json.toString();
   }
 
